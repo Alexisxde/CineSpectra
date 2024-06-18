@@ -8,7 +8,8 @@ export default defineConfig({
 		alias: {
 			'@components': '/src/components',
 			'@public': '/public',
-			'@icons': '/src/assets/icons'
+			'@icons': '/src/assets/icons',
+			'@api': '/api'
 		}
 	}
 })
