@@ -7,8 +7,10 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			'@components': '/src/components',
+			'@pages': '/src/pages',
 			'@public': '/public',
-			'@icons': '/src/assets/icons'
+			'@icons': '/src/assets/icons',
+			'@api': '/api'
 		}
 	}
 })

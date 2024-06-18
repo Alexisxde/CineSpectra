@@ -21,7 +21,6 @@ module.exports = {
 		],
 		'no-console': 'error',
 		'no-label-var': 'error',
-		'no-magic-numbers': ['error', { ignoreArrayIndexes: true }],
 		'no-multi-str': 'error',
 		'no-negated-condition': 'error',
 		'no-nested-ternary': 'error',
