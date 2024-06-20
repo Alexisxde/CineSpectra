@@ -10,6 +10,7 @@ export default defineConfig({
 			'@pages': '/src/pages',
 			'@public': '/public',
 			'@icons': '/src/assets/icons',
+			'@CONST': '/src/const',
 			'@api': '/api'
 		}
 	}

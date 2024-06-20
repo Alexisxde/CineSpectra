@@ -15,7 +15,8 @@ export async function getAllMovies(page = 1) {
 	try {
 		const response = await axiosInstance.get('/discover/movie', {
 			params: {
-				page: page
+				page: page,
+				language: 'es-MX'
 			}
 		})
 		return response.data.results
@@ -25,7 +26,11 @@ export async function getAllMovies(page = 1) {
 }
 export async function getOneMovie(id) {
 	try {
-		const response = await axiosInstance.get(`/movie/${id}`)
+		const response = await axiosInstance.get(`/movie/${id}`, {
+			params: {
+				language: 'es-MX'
+			}
+		})
 		return response.data
 	} catch (error) {
 		throw new Error('Error fetching movies: ' + error.message)
