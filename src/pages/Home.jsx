@@ -5,41 +5,44 @@ import MovieCard from '@components/MovieCard'
 
 export default function MoviesList() {
 	const [movies, setMovies] = useState([])
-	const [loading, setLoading] = useState(true)
+	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState(null)
+
 	const navigate = useNavigate()
 	const [searchParams] = useSearchParams()
-
 	const initialPage = parseInt(searchParams.get('page')) || 1
 	const [currentPage, setCurrentPage] = useState(initialPage)
 
-	useEffect(() => {
-		const getMovies = async () => {
-			try {
-				const data = await getAllMovies(currentPage)
-				setMovies(data)
-			} catch (error) {
-				setError(error.message)
-			} finally {
-				setTimeout(() => {
-					setLoading(false)
-				}, 3000)
-			}
+	const getMovies = async page => {
+		try {
+			const data = await getAllMovies(page)
+			setMovies(data)
+		} catch (error) {
+			setError(error.message)
+		} finally {
+			setLoading(false)
 		}
-		getMovies()
-	}, [currentPage])
+	}
 
 	const handlePageChange = page => {
 		setLoading(true)
 		setCurrentPage(page)
 		navigate(`?page=${page}`)
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		})
 	}
+
+	useEffect(() => {
+		getMovies(currentPage)
+	}, [currentPage])
 
 	if (loading) return <div className='loader'></div>
 	if (error) return <div>{error}</div>
 
 	return (
-		<>
+		<main className='pt-10'>
 			<section className='m-10 flex flex-wrap justify-center gap-4'>
 				{movies.map(movie => (
 					<MovieCard key={movie.id} movie={movie} />
@@ -56,6 +59,6 @@ export default function MoviesList() {
 					Siguiente
 				</button>
 			</div>
-		</>
+		</main>
 	)
 }
