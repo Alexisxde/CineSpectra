@@ -8,8 +8,8 @@ export default function NavFav({ closeNav }) {
 				<div className='h-14'>
 					<button
 						onClick={closeNav}
-						className='absolute -top-1 right-0 m-5 cursor-pointer'>
-						<XMarkIcon className='size-6 text-white' />
+						className='absolute right-0 top-0 m-5 cursor-pointer'>
+						<XMarkIcon className='size-7 text-white' />
 					</button>
 				</div>
 				<div className='size-full text-white'></div>
