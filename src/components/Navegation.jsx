@@ -6,27 +6,14 @@ import { HeartIcon, Bars3Icon } from '@heroicons/react/24/solid'
 export default function Layout() {
 	const [navCategories, setNavCategories] = useState(false)
 	const [navFav, setNavFav] = useState(false)
-	// const [scrolled, setScrolled] = useState(false)
 
 	const toggleNavCategories = () => setNavCategories(!navCategories)
 	const toggleNavFav = () => setNavFav(!navFav)
 
-	// useEffect(() => {
-	// 	const handleScroll = () => {
-	// 		if (window.scrollY > 50) {
-	// 			setScrolled(true)
-	// 		} else {
-	// 			setScrolled(false)
-	// 		}
-	// 	}
-	// 	window.addEventListener('scroll', handleScroll)
-	// 	return () => window.removeEventListener('scroll', handleScroll)
-	// }, [])
-
 	return (
 		<>
 			<header
-				className={`fixed top-0 z-40 flex w-full items-center justify-between bg-black/40 p-5 text-white backdrop-blur-md transition-all duration-300`}>
+				className={`sticky top-0 z-40 flex w-full items-center justify-between bg-black/40 p-5 text-white backdrop-blur-md transition-all duration-300`}>
 				<button className='cursor-pointer' onClick={toggleNavCategories}>
 					<Bars3Icon className='size-7 text-white' />
 				</button>

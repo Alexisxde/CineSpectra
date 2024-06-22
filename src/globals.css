@@ -7,6 +7,10 @@ body {
 	@apply bg-black text-white;
 }
 
+::-webkit-scrollbar {
+	width: 0px;
+}
+
 .loader {
 	width: 32px;
 	height: 32px;
@@ -32,7 +36,21 @@ body {
 	}
 }
 
-::view-transition-old(:root),
-::view-transition-new(:root) {
-	animation-duration: 0.5s;
+.animate-img {
+	animation: reveal linear both;
+	animation-timeline: view();
+	animation-range: entry 10% cover 20%;
+}
+
+@keyframes reveal {
+	from {
+		opacity: 0;
+		transform: translateY(50px);
+		scale: 0.7;
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+		scale: 1;
+	}
 }

@@ -23,7 +23,13 @@ export default function Movie() {
 		getMovie()
 	}, [id])
 
-	if (loading) return <div className='loader'></div>
+	if (loading) {
+		return (
+			<div className='flex justify-center pb-7'>
+				<div className='loader'></div>
+			</div>
+		)
+	}
 	if (error) return <div>{error}</div>
 
 	const {

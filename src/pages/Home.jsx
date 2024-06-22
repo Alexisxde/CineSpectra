@@ -34,7 +34,7 @@ export default function MoviesList() {
 						handlePageChange()
 					}
 				},
-				{ threshold: 0.25 }
+				{ threshold: 0.25, rootMargin: '100px' }
 			)
 			observer.observe(currentEnd)
 
@@ -53,11 +53,12 @@ export default function MoviesList() {
 	if (error) return <div>{error}</div>
 
 	return (
-		<main className='pt-10'>
-			<section className='m-10 flex flex-wrap justify-center gap-4'>
-				{movies?.map(movie => (
-					<MovieCard key={movie.id} movie={movie} />
-				))}
+		<main>
+			<section className='mx-2 mb-10 mt-5 flex flex-wrap justify-center gap-4'>
+				{movies?.map(
+					movie =>
+						movie.poster_path && <MovieCard key={movie.id} movie={movie} />
+				)}
 			</section>
 			<div className='flex justify-center pb-7'>
 				<div ref={pageEnd} className='loader'></div>
