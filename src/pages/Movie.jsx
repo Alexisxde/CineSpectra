@@ -17,9 +17,7 @@ export default function Movie() {
 			} catch (error) {
 				setError(error.message)
 			} finally {
-				setTimeout(() => {
-					setLoading(false)
-				}, 3000)
+				setLoading(false)
 			}
 		}
 		getMovie()
@@ -55,7 +53,8 @@ export default function Movie() {
 				<img
 					className='relative -top-9 h-auto w-44'
 					src={URL_IMG + poster_path}
-					alt=''
+					alt={title}
+					style={{ viewTransitionName: `movie-${id}` }}
 				/>
 				<span className='-mt-5 mb-2 rounded bg-gray-800 px-2.5 py-0.5 text-xs font-medium text-gray-300'>
 					{year}
@@ -68,7 +67,7 @@ export default function Movie() {
 						{vote_average.toFixed(1)}
 					</span>
 					<div className='mt-2 inline-flex w-full justify-center gap-2'>
-						{genres.map(({ id, name }) => (
+						{genres?.map(({ id, name }) => (
 							<span
 								className='rounded bg-gray-800 px-2.5 py-0.5 text-xs font-medium text-gray-300'
 								key={id}>
