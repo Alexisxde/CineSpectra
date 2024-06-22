@@ -9,9 +9,7 @@ export default function MovieCard({ movie }) {
 			className='animate-img h-64 w-44 lg:h-80 lg:w-56'
 			alt={title}
 			style={{ viewTransitionName: `movie-${id}` }}>
-			<div
-				key={id}
-				className='size-full transition hover:scale-105 hover:rounded hover:border hover:border-blue-600'>
+			<div key={id} className='size-full transition hover:scale-105'>
 				<img
 					className='size-full rounded object-cover'
 					src={URL_IMG + poster_path}

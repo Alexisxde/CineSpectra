@@ -6,7 +6,7 @@ import Navegation from '@components/Navegation'
 
 export default function App() {
 	return (
-		<div className='mx-auto my-0 max-w-[1920px]'>
+		<main className='mx-auto my-0 max-w-[1366px]'>
 			<Navegation />
 			<Router>
 				<Routes>
@@ -15,6 +15,6 @@ export default function App() {
 					<Route path='*' element={<NotFound />} />
 				</Routes>
 			</Router>
-		</div>
+		</main>
 	)
 }

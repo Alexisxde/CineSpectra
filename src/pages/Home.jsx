@@ -53,7 +53,7 @@ export default function MoviesList() {
 	if (error) return <div>{error}</div>
 
 	return (
-		<main>
+		<>
 			<section className='mx-2 mb-10 mt-5 flex flex-wrap justify-center gap-4'>
 				{movies?.map(
 					movie =>
@@ -63,6 +63,6 @@ export default function MoviesList() {
 			<div className='flex justify-center pb-7'>
 				<div ref={pageEnd} className='loader'></div>
 			</div>
-		</main>
+		</>
 	)
 }
