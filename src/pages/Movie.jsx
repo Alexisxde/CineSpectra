@@ -24,11 +24,12 @@ export default function Movie() {
 	}, [id])
 
 	if (loading) {
-		return (
-			<div className='flex justify-center pb-7'>
-				<div className='loader'></div>
-			</div>
-		)
+		return
+		// return (
+		// 	<div className='flex justify-center pb-7'>
+		// 		<div className='loader'></div>
+		// 	</div>
+		// )
 	}
 	if (error) return <div>{error}</div>
 
@@ -59,7 +60,7 @@ export default function Movie() {
 				<img
 					className='relative -top-9 h-auto w-44 sm:w-72 md:left-0 md:top-0 md:my-10 md:w-96'
 					src={URL_IMG + poster_path}
-					alt={title}
+					alt={`${title} Poster`}
 					style={{ viewTransitionName: `movie-${id}` }}
 				/>
 				<div className='flex w-full flex-col items-center justify-center gap-1 text-pretty px-4 md:max-w-[680px] md:p-0'>
