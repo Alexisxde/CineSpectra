@@ -11,13 +11,14 @@ const axiosInstance = axios.create({
 	}
 })
 
-export async function getAllMovies(page = 1) {
+export async function getAllMoviesCategories(id, page = 1) {
 	try {
 		const response = await axiosInstance.get('/discover/movie', {
 			params: {
 				primary_release_year: 2024,
 				page: page,
-				language: 'es-MX'
+				language: 'es-MX',
+				with_genres: id
 			}
 		})
 		return response.data.results
@@ -38,9 +39,9 @@ export async function getOneMovie(id) {
 	}
 }
 
-export async function getMovieCategories(id) {
+export async function getAllCategories() {
 	try {
-		const response = await axiosInstance.get(`/movie/${id}`, {
+		const response = await axiosInstance.get(`/genre/movie/list`, {
 			params: {
 				language: 'es-MX'
 			}

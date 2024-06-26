@@ -72,7 +72,9 @@ export default function Movie() {
 					</h2>
 					<span
 						className={`rounded px-2.5 py-0.5 text-xs font-medium sm:text-lg ${vote_average > 4 ? 'bg-yellow-900 text-yellow-300' : 'bg-red-900 text-red-300'}`}>
-						{vote_average.toFixed(1)}
+						{vote_average.toFixed(1) == 0.0
+							? 'No estrenado'
+							: vote_average.toFixed(1)}
 					</span>
 					<div className='mt-2 inline-flex w-full justify-center gap-2'>
 						{genres?.map(({ id, name }) => (
