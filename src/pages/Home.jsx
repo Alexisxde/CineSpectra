@@ -119,7 +119,7 @@ export default function Home() {
 						)}
 						<div
 							ref={el => (scrollRefs.current[index] = el)}
-							className='scrollbar-hide flex w-full snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden py-5'>
+							className='flex w-full snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden py-5 scrollbar-hide'>
 							{movies?.map(
 								movie =>
 									movie.poster_path && (

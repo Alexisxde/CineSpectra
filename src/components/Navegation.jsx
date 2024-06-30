@@ -17,9 +17,9 @@ export default function Layout() {
 				<button className='cursor-pointer' onClick={toggleNavCategories}>
 					<Bars3Icon className='size-7 text-white' />
 				</button>
-				<span>
+				<a href='/'>
 					<strong>CINESPECTRA</strong>
-				</span>
+				</a>
 				<button className='cursor-pointer' onClick={toggleNavFav}>
 					<HeartIcon className='size-7 text-red-500' />
 				</button>
