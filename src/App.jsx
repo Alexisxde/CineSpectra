@@ -4,10 +4,11 @@ import Movie from '@pages/Movie'
 import Categories from '@pages/Categories'
 import NotFound from '@pages/NotFound'
 import Navegation from '@components/Navegation'
+import Footer from '@components/Footer'
 
 export default function App() {
 	return (
-		<main className='mx-auto my-0 max-w-[1366px]'>
+		<main className='mx-auto my-0 max-w-[1920px]'>
 			<Navegation />
 			<Router>
 				<Routes>
@@ -17,6 +18,7 @@ export default function App() {
 					<Route path='*' element={<NotFound />} />
 				</Routes>
 			</Router>
+			<Footer />
 		</main>
 	)
 }

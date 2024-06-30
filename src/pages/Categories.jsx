@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getAllMoviesCategories } from '@api/movies/api'
 import MovieCard from '@components/MovieCard'
 
-export default function MoviesList() {
+export default function Categories() {
 	const { id } = useParams()
 	const [movies, setMovies] = useState([])
 	const [loading, setLoading] = useState(true)
@@ -54,7 +54,7 @@ export default function MoviesList() {
 
 	if (loading) {
 		return (
-			<div className='flex justify-center pb-7'>
+			<div className='flex h-screen justify-center pb-7'>
 				<div className='loader'></div>
 			</div>
 		)

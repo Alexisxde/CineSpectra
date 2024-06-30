@@ -13,7 +13,7 @@ export default function Layout() {
 	return (
 		<>
 			<header
-				className={`sticky top-0 z-40 flex w-full items-center justify-between bg-black/40 p-5 text-white backdrop-blur-md transition-all duration-300`}>
+				className={`sticky top-0 z-40 flex w-full items-center justify-between bg-black/40 p-5 text-white backdrop-blur-md`}>
 				<button className='cursor-pointer' onClick={toggleNavCategories}>
 					<Bars3Icon className='size-7 text-white' />
 				</button>
