@@ -48,7 +48,7 @@ export default function Movie() {
 
 	return (
 		<section>
-			<div className='relative -mt-20 w-full sm:-mt-40 md:mt-0'>
+			<div className='relative w-full'>
 				<div className='absolute inset-0 bg-gradient-to-b from-transparent to-black md:hidden'></div>
 				<img
 					className='w-full object-contain md:hidden'
@@ -58,7 +58,7 @@ export default function Movie() {
 			</div>
 			<div className='flex w-full flex-col items-center justify-center gap-2 sm:-mt-12 md:flex-row md:px-10 md:py-8'>
 				<img
-					className='relative -top-9 h-auto w-44 sm:w-72 md:left-0 md:top-0 md:my-10 md:w-96'
+					className='relative -top-9 h-auto w-44 sm:w-72 md:left-0 md:top-0 md:my-10 md:w-80'
 					src={URL_IMG + poster_path}
 					alt={`${title} Poster`}
 					style={{ viewTransitionName: `movie-${id}` }}
