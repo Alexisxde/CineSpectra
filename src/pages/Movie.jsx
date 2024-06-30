@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getOneMovie } from '@api/movies/api'
+import { getOneMovie, getMovieTrailer } from '@api/movies/api'
 import { URL_IMG } from '@CONST/const'
 
 export default function Movie() {
@@ -13,7 +13,8 @@ export default function Movie() {
 		const getMovie = async () => {
 			try {
 				const data = await getOneMovie(id)
-				setMovie(data)
+				const trailer = await getMovieTrailer(id)
+				setMovie({ movie: data, trailer })
 			} catch (error) {
 				setError(error.message)
 			} finally {
@@ -41,7 +42,7 @@ export default function Movie() {
 		genres,
 		release_date,
 		vote_average
-	} = movie
+	} = movie.movie
 
 	const release = new Date(release_date)
 	const year = release.getFullYear()
@@ -78,19 +79,33 @@ export default function Movie() {
 					</span>
 					<div className='mt-2 inline-flex w-full justify-center gap-2'>
 						{genres?.map(({ id, name }) => (
-							<span
+							<a
+								href={`categories/${id}`}
 								className='rounded bg-gray-800 px-2.5 py-0.5 text-xs font-medium text-gray-300 sm:text-lg'
 								key={id}>
 								{name}
-							</span>
+							</a>
 						))}
 					</div>
-					<p className='text-pretty p-3 text-center text-lg text-gray-300/50 md:text-xl'>
+					<p className='text-pretty p-3 text-center text-sm text-gray-300/50 md:text-base'>
 						{overview}
 					</p>
 				</div>
 			</div>
-			{/* <pre>{JSON.stringify(movie, null, 2)}</pre> */}
+			{movie?.trailer && (
+				<div className='m-8 mx-auto mb-12 w-3/4 lg:mb-28 lg:w-1/2'>
+					<h3 className='my-8 text-center text-lg font-semibold uppercase sm:text-4xl md:text-3xl'>
+						{title} - {movie.trailer.name}
+					</h3>
+					<img
+						className='aspect-video w-full'
+						src={URL_IMG + backdrop_path}
+						alt=''
+					/>
+				</div>
+			)}
+			{/* https://www.youtube.com/watch?v=${movie.trailer.key} */}
+			{/* <pre>{JSON.stringify(movie.trailer, null, 2)}</pre> */}
 		</section>
 	)
 }

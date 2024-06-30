@@ -12,10 +12,13 @@ const axiosInstance = axios.create({
 })
 
 export async function getAllMoviesCategories(id, page = 1) {
+	const date = new Date()
+	const year = date.getFullYear()
+
 	try {
 		const response = await axiosInstance.get('/discover/movie', {
 			params: {
-				primary_release_year: 2024,
+				primary_release_year: year,
 				page: page,
 				language: 'es-MX',
 				with_genres: id
@@ -54,12 +57,12 @@ export async function getAllCategories() {
 
 export async function getMovieTrailer(id) {
 	try {
-		const response = await axiosInstance.get(`/movie/${id}/video`, {
+		const response = await axiosInstance.get(`/movie/${id}/videos`, {
 			params: {
 				language: 'es-MX'
 			}
 		})
-		return response.data
+		return response.data.results[0]
 	} catch (error) {
 		throw new Error('Error fetching movies: ' + error.message)
 	}
