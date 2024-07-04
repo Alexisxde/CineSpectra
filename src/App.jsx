@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Navegation from '@components/Navegation'
+import Categories from '@pages/Categories'
 import Home from '@pages/Home'
 import Movie from '@pages/Movie'
-import Categories from '@pages/Categories'
 import NotFound from '@pages/NotFound'
-import Navegation from '@components/Navegation'
-import Footer from '@components/Footer'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+// import Footer from '@components/Footer'
 
 export default function App() {
 	return (
@@ -18,7 +18,7 @@ export default function App() {
 					<Route path='*' element={<NotFound />} />
 				</Routes>
 			</Router>
-			<Footer />
+			{/* <Footer /> */}
 		</main>
 	)
 }

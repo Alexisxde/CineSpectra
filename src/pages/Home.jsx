@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import { getAllCategories, getAllMoviesCategories } from '@api/movies/api'
 import MovieCard from '@components/MovieCard'
+import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Home() {
 	const [categories, setCategories] = useState([])
@@ -98,8 +98,8 @@ export default function Home() {
 	if (error) return <div>{error}</div>
 	if (loading) {
 		return (
-			<div className='flex justify-center pb-7'>
-				<div className='loader'></div>
+			<div className='flex h-screen items-center justify-center'>
+				<div className='animate-loader'></div>
 			</div>
 		)
 	}
@@ -107,9 +107,13 @@ export default function Home() {
 	return (
 		<>
 			{categories?.map(({ id, name, movies }, index) => (
-				<section key={id} className='p-4 md:px-12 md:py-4'>
-					<h1 className='text-3xl font-bold md:text-2xl'>{name}</h1>
-					<div className='flex items-center'>
+				<section
+					key={id}
+					className='animate-scroll-section p-4 md:px-12 md:py-4'>
+					<h2 className='animate-content text-3xl font-bold md:text-2xl'>
+						{name}
+					</h2>
+					<div className='animate-content animate-delay-90ms flex items-center'>
 						{!scrollPositions[index]?.isAtStart && (
 							<button
 								onClick={() => scroll(index, 'left')}
@@ -128,7 +132,7 @@ export default function Home() {
 							)}
 							<div className='flex items-center justify-center text-lg font-medium'>
 								<Link
-									to={`categories/${id}`}
+									to={`/categories/${id}`}
 									className='mx-2 w-32 rounded-md bg-gray-900 px-6 py-2 text-center'>
 									Ver más
 								</Link>

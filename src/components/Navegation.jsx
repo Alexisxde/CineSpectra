@@ -1,7 +1,7 @@
-import { useState } from 'react'
 import NavCategories from '@components/NavCategories'
 import NavFav from '@components/NavFav'
-import { HeartIcon, Bars3Icon } from '@heroicons/react/24/solid'
+import { Bars3Icon, HeartIcon } from '@heroicons/react/24/solid'
+import { useState } from 'react'
 
 export default function Layout() {
 	const [navCategories, setNavCategories] = useState(false)

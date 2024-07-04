@@ -1,7 +1,7 @@
+import { URL_IMG } from '@CONST/const'
+import { getMovieTrailer, getOneMovie } from '@api/movies/api'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getOneMovie, getMovieTrailer } from '@api/movies/api'
-import { URL_IMG } from '@CONST/const'
 
 export default function Movie() {
 	const { id } = useParams()
@@ -49,7 +49,7 @@ export default function Movie() {
 
 	return (
 		<section>
-			<div className='relative w-full'>
+			<div className='animate-content relative w-full'>
 				<div className='absolute inset-0 bg-gradient-to-b from-transparent to-black md:hidden'></div>
 				<img
 					className='w-full object-contain md:hidden'
@@ -57,14 +57,15 @@ export default function Movie() {
 					alt=''
 				/>
 			</div>
-			<div className='flex w-full flex-col items-center justify-center gap-2 sm:-mt-12 md:flex-row md:px-10 md:py-8'>
+			<div className='animate-content flex w-full flex-col items-center justify-center gap-2 sm:-mt-12 md:flex-row md:px-10 md:py-8'>
 				<img
 					className='relative -top-9 h-auto w-44 sm:w-72 md:left-0 md:top-0 md:my-10 md:w-80'
 					src={URL_IMG + poster_path}
 					alt={`${title} Poster`}
-					style={{ viewTransitionName: `movie-${id}` }}
+					loading='lazy'
+					// style={{ viewTransitionName: `movie-${id}` }}
 				/>
-				<div className='flex w-full flex-col items-center justify-center gap-1 text-pretty px-4 md:max-w-[680px] md:p-0'>
+				<div className='animate-content sm:animate-delay-90ms md:animate-delay-110ms flex w-full flex-col items-center justify-center gap-1 text-pretty px-4 md:max-w-[680px] md:p-0'>
 					<span className='-mt-5 mb-2 rounded bg-gray-800 px-2.5 py-0.5 text-xs font-medium text-gray-300 sm:text-lg'>
 						{year}
 					</span>
@@ -87,13 +88,13 @@ export default function Movie() {
 							</a>
 						))}
 					</div>
-					<p className='text-pretty p-3 text-center text-sm text-gray-300/50 md:text-base'>
+					<p className='animate-content animate-delay-110ms text-pretty p-3 text-center text-sm text-gray-300/50 md:text-base'>
 						{overview}
 					</p>
 				</div>
 			</div>
 			{movie?.trailer && (
-				<div className='m-8 mx-auto mb-12 w-3/4 lg:mb-28 lg:w-1/2'>
+				<div className='animate-video m-8 mx-auto mb-12 w-3/4 lg:mb-28 lg:w-1/2'>
 					<h3 className='my-8 text-center text-lg font-semibold uppercase sm:text-4xl md:text-3xl'>
 						{title} - {movie.trailer.name}
 					</h3>

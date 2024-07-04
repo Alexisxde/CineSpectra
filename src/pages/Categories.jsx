@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react'
-import { useParams } from 'react-router-dom'
 import { getAllMoviesCategories } from '@api/movies/api'
 import MovieCard from '@components/MovieCard'
+import { useEffect, useRef, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 export default function Categories() {
 	const { id } = useParams()

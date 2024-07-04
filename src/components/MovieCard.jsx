@@ -1,7 +1,6 @@
-import { flushSync } from 'react-dom'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
 import { URL_IMG } from '@CONST/const'
+import { flushSync } from 'react-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function MovieCard({ movie, className = '' }) {
 	const { id, title, poster_path } = movie
@@ -22,6 +21,7 @@ export default function MovieCard({ movie, className = '' }) {
 					className='size-full select-none rounded object-cover'
 					src={URL_IMG + poster_path}
 					alt={`${title} Poster`}
+					loading='lazy'
 					// style={{ viewTransitionName: `movie-${id}` }}
 				/>
 			</div>
