@@ -81,7 +81,7 @@ export default function Movie() {
 					<div className='mt-2 inline-flex w-full justify-center gap-2'>
 						{genres?.map(({ id, name }) => (
 							<a
-								href={`categories/${id}`}
+								href={`/categories/${id}`}
 								className='rounded bg-gray-800 px-2.5 py-0.5 text-xs font-medium text-gray-300 sm:text-lg'
 								key={id}>
 								{name}
@@ -98,11 +98,10 @@ export default function Movie() {
 					<h3 className='my-8 text-center text-lg font-semibold uppercase sm:text-4xl md:text-3xl'>
 						{title} - {movie.trailer.name}
 					</h3>
-					<img
+					<iframe
 						className='aspect-video w-full'
-						src={URL_IMG + backdrop_path}
-						alt=''
-					/>
+						src={`https://www.youtube.com/embed/${movie.trailer.key}`}
+						allowFullScreen></iframe>
 				</div>
 			)}
 			{/* https://www.youtube.com/watch?v=${movie.trailer.key} */}
