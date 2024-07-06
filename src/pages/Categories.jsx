@@ -55,7 +55,7 @@ export default function Categories() {
 	if (loading) {
 		return (
 			<div className='flex h-screen justify-center pb-7'>
-				<div className='loader'></div>
+				<div className='animate-loader'></div>
 			</div>
 		)
 	}
@@ -73,7 +73,7 @@ export default function Categories() {
 				)}
 			</section>
 			<div className='flex justify-center pb-7'>
-				<div ref={pageEnd} className='loader'></div>
+				<div ref={pageEnd} className='animate-loader'></div>
 			</div>
 		</>
 	)

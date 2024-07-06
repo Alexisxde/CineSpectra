@@ -1,5 +1,5 @@
-import axios from 'axios'
 import { API_URL } from '@CONST/const'
+import axios from 'axios'
 
 const API_TOKEN = import.meta.env.VITE_API_TOKEN
 
@@ -63,6 +63,21 @@ export async function getMovieTrailer(id) {
 			}
 		})
 		return response.data.results[0]
+	} catch (error) {
+		throw new Error('Error fetching movies: ' + error.message)
+	}
+}
+
+export async function searchMovies(keyword, page = 1) {
+	try {
+		const response = await axiosInstance.get(`/search/movie`, {
+			params: {
+				language: 'es-MX',
+				query: keyword,
+				page
+			}
+		})
+		return response.data.results
 	} catch (error) {
 		throw new Error('Error fetching movies: ' + error.message)
 	}

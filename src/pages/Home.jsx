@@ -117,7 +117,7 @@ export default function Home() {
 						{!scrollPositions[index]?.isAtStart && (
 							<button
 								onClick={() => scroll(index, 'left')}
-								className='absolute left-3 z-10 hidden rounded-full bg-gray-900 p-2 lg:block'>
+								className='absolute left-3 z-10 hidden rounded-full bg-gray-900 p-2 md:block'>
 								&lt;
 							</button>
 						)}
@@ -141,7 +141,7 @@ export default function Home() {
 						{!scrollPositions[index]?.isAtEnd && (
 							<button
 								onClick={() => scroll(index, 'right')}
-								className='absolute right-3 z-10 hidden rounded-full bg-gray-900 p-2 lg:block'>
+								className='absolute right-3 z-10 hidden rounded-full bg-gray-900 p-2 md:block'>
 								&gt;
 							</button>
 						)}

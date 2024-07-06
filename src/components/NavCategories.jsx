@@ -33,7 +33,7 @@ export default function NavCategories({ closeNav }) {
 				<div className='relative w-full'>
 					<button
 						onClick={closeNav}
-						className='absolute -top-1 left-0 m-5 cursor-pointer'>
+						className='absolute left-0 top-0 m-5 cursor-pointer'>
 						<XMarkIcon className='size-7 text-white' />
 					</button>
 					<h2 className='p-4 text-center text-2xl font-bold'>Categorias</h2>

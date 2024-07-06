@@ -57,7 +57,7 @@ export default function Movie() {
 					alt=''
 				/>
 			</div>
-			<div className='animate-content flex w-full flex-col items-center justify-center gap-2 sm:-mt-12 md:flex-row md:px-10 md:py-8'>
+			<div className='animate-content flex w-full flex-col items-center justify-center gap-2 sm:-mt-12 md:flex-row md:px-10 md:pb-8 md:pt-6'>
 				<img
 					className='relative -top-9 h-auto w-44 sm:w-72 md:left-0 md:top-0 md:my-10 md:w-80'
 					src={URL_IMG + poster_path}
@@ -104,8 +104,6 @@ export default function Movie() {
 						allowFullScreen></iframe>
 				</div>
 			)}
-			{/* https://www.youtube.com/watch?v=${movie.trailer.key} */}
-			{/* <pre>{JSON.stringify(movie.trailer, null, 2)}</pre> */}
 		</section>
 	)
 }

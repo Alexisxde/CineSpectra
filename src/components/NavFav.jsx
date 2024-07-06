@@ -10,7 +10,7 @@ export default function NavFav({ closeNav }) {
 				<div className='relative w-full'>
 					<button
 						onClick={closeNav}
-						className='absolute right-0 top-0 m-5 cursor-pointer'>
+						className='absolute right-0 top-1 m-5 cursor-pointer'>
 						<XMarkIcon className='size-7 text-white' />
 					</button>
 					<h2 className='p-4 text-center text-2xl font-bold'>Favoritos</h2>
