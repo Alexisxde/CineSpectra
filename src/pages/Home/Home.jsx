@@ -1,7 +1,7 @@
 import { getAllCategories, getAllMoviesCategories } from '@api/movies/api'
-import MovieCard from '@components/MovieCard'
+import MovieCard from '@components/MovieCard/MovieCard'
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import './Home.css'
 
 export default function Home() {
 	const [categories, setCategories] = useState([])
@@ -98,7 +98,7 @@ export default function Home() {
 	if (error) return <div>{error}</div>
 	if (loading) {
 		return (
-			<div className='flex h-screen items-center justify-center'>
+			<div className='animate-loader-container'>
 				<div className='animate-loader'></div>
 			</div>
 		)
@@ -107,44 +107,23 @@ export default function Home() {
 	return (
 		<>
 			{categories?.map(({ id, name, movies }, index) => (
-				<section
-					key={id}
-					className='animate-scroll-section p-4 md:px-12 md:py-4'>
-					<h2 className='animate-content text-3xl font-bold md:text-2xl'>
-						{name}
-					</h2>
-					<div className='animate-content animate-delay-90ms flex items-center'>
-						{!scrollPositions[index]?.isAtStart && (
-							<button
-								onClick={() => scroll(index, 'left')}
-								className='absolute left-3 z-10 hidden rounded-full bg-gray-900 p-2 md:block'>
-								&lt;
-							</button>
-						)}
-						<div
-							ref={el => (scrollRefs.current[index] = el)}
-							className='flex w-full snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden py-5 scrollbar-hide'>
+				<section key={id} className='movies'>
+					<h2 className='movies__category'>{name}</h2>
+					<div className='animate-scroll-section movies__slider'>
+						{/* {!scrollPositions[index]?.isAtStart && (
+							<button onClick={() => scroll(index, 'left')}>&lt;</button>
+						)} */}
+						<div ref={el => (scrollRefs.current[index] = el)}>
 							{movies?.map(
 								movie =>
 									movie.poster_path && (
 										<MovieCard key={movie.id} movie={movie} />
 									)
 							)}
-							<div className='flex items-center justify-center text-lg font-medium'>
-								<Link
-									to={`/categories/${id}`}
-									className='mx-2 w-32 rounded-md bg-gray-900 px-6 py-2 text-center'>
-									Ver más
-								</Link>
-							</div>
 						</div>
-						{!scrollPositions[index]?.isAtEnd && (
-							<button
-								onClick={() => scroll(index, 'right')}
-								className='absolute right-3 z-10 hidden rounded-full bg-gray-900 p-2 md:block'>
-								&gt;
-							</button>
-						)}
+						{/* {!scrollPositions[index]?.isAtEnd && (
+							<button onClick={() => scroll(index, 'right')}>&gt;</button>
+						)} */}
 					</div>
 				</section>
 			))}

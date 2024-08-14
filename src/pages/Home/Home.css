@@ -1,0 +1,25 @@
+.movie {
+	display: flex;
+	margin: 32px;
+	overflow: scroll;
+}
+
+.movies__category {
+	font-size: clamp(16px, 2vw, 32px);
+	font-weight: 500;
+	padding-inline: 32px;
+	margin-block: 8px;
+}
+
+.movies__slider {
+	padding: 8px 32px;
+}
+
+.movies__slider > div {
+	display: flex;
+	gap: 16px;
+	width: 100%;
+	scroll-snap-type: mandatory;
+	overflow-x: auto;
+	overflow-y: hidden;
+}

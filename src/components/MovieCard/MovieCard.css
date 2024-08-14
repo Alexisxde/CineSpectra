@@ -1,0 +1,29 @@
+.card {
+	width: 225px;
+	height: 337px;
+	flex: none;
+	scroll-snap-align: start;
+}
+
+.card > div {
+	transition: scale 150ms;
+
+	img {
+		width: 100%;
+		height: 100%;
+		user-select: none;
+		border-radius: 8px;
+		object-fit: cover;
+	}
+
+	&:hover {
+		scale: 105%;
+	}
+}
+
+@media (width < 768px) {
+	.card {
+		width: 140px;
+		height: 210px;
+	}
+}

@@ -29,6 +29,7 @@ export async function getAllMoviesCategories(id, page = 1) {
 		throw new Error('Error fetching movies: ' + error.message)
 	}
 }
+
 export async function getOneMovie(id) {
 	try {
 		const response = await axiosInstance.get(`/movie/${id}`, {

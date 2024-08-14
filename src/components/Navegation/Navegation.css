@@ -1,0 +1,150 @@
+.navegation {
+	max-width: 1620px;
+	padding: 16px 64px;
+	background-color: #1a1a1a50;
+	display: flex;
+	margin: 32px auto;
+	justify-content: space-between;
+	position: sticky;
+	top: 32px;
+	color: white;
+	border-radius: 16px;
+	z-index: 99;
+	backdrop-filter: blur(5px);
+}
+
+.navegation > div {
+	display: flex;
+	align-items: center;
+	gap: 64px;
+}
+
+.navegation__logo {
+	a {
+		font-size: 28px;
+		color: white;
+		text-decoration: none;
+		font-weight: 600;
+
+		&:hover {
+			opacity: 75%;
+		}
+	}
+}
+
+.navegation__links {
+	display: flex;
+	align-items: center;
+	gap: 32px;
+
+	a {
+		color: white;
+		text-decoration: none;
+		font-size: clamp(16px, 2vw, 24px);
+		font-weight: 300;
+
+		&:hover {
+			opacity: 75%;
+		}
+	}
+}
+
+.navegation__search {
+	width: 250px;
+	background-color: #00000025;
+	border-radius: 16px;
+	display: inline-flex;
+	align-items: center;
+	padding-inline: 16px;
+	gap: 8px;
+}
+
+.navegation__search > input {
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
+	padding: 16px 0;
+	font-size: clamp(16px, 2vw, 24px);
+	border: none;
+	color: white;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.navegation__hamburguer {
+	background: transparent;
+	border: none;
+	position: relative;
+	z-index: 99;
+}
+
+.navegation__hamburguer,
+.navegation__nav {
+	display: none;
+}
+
+@media (width < 1366px) {
+	.navegation {
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
+	}
+}
+
+@media (width < 890px) {
+	.navegation > div {
+		flex-direction: column;
+		gap: 8px;
+		align-items: center;
+	}
+}
+
+@media (width < 597px) {
+	.navegation__hamburguer,
+	.navegation__nav {
+		display: block;
+	}
+
+	.navegation__nav {
+		background: #00000050;
+		backdrop-filter: blur(25px);
+		position: absolute;
+		margin: 0 auto;
+		right: 32px;
+		top: 0;
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 32px;
+		padding-bottom: 16px;
+		gap: 16px;
+		border-radius: 8px;
+		text-align: center;
+
+		a {
+			text-decoration: none;
+			color: white;
+
+			&:hover {
+				opacity: 75%;
+			}
+		}
+	}
+
+	.navegation > div {
+		width: 100%;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.navegation__links {
+		display: none;
+	}
+
+	.navegation__search {
+		width: 100%;
+	}
+}

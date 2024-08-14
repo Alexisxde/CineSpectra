@@ -1,13 +1,15 @@
 import { URL_IMG } from '@CONST/const'
 import { flushSync } from 'react-dom'
 import { Link, useNavigate } from 'react-router-dom'
+import './MovieCard.css'
 
-export default function MovieCard({ movie, className = '' }) {
+export default function MovieCard({ movie }) {
 	const { id, title, poster_path } = movie
 	const navigate = useNavigate()
+
 	return (
 		<Link
-			className={`h-64 w-44 flex-none snap-start lg:h-80 lg:w-56 ${className}`}
+			className='card'
 			onClick={ev => {
 				ev.preventDefault()
 				document.startViewTransition(() => {
@@ -16,9 +18,8 @@ export default function MovieCard({ movie, className = '' }) {
 					})
 				})
 			}}>
-			<div key={id} className='size-full md:transition md:hover:scale-105'>
+			<div key={id}>
 				<img
-					className='size-full select-none rounded object-cover'
 					src={URL_IMG + poster_path}
 					alt={`${title} Poster`}
 					loading='lazy'

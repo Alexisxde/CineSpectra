@@ -1,5 +1,5 @@
 import { getAllMoviesCategories } from '@api/movies/api'
-import MovieCard from '@components/MovieCard'
+import MovieCard from '@components/MovieCard/MovieCard'
 import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
