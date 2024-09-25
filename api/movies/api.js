@@ -83,3 +83,32 @@ export async function searchMovies(keyword, page = 1) {
 		throw new Error('Error fetching movies: ' + error.message)
 	}
 }
+
+export async function getImages(id_movie) {
+	try {
+		const response = await axiosInstance.get(`/movie/${id_movie}/images`, {
+			params: {
+				language: 'es'
+			}
+		})
+		return response.data
+	} catch (error) {
+		throw new Error('Error fetching movies: ' + error.message)
+	}
+}
+
+export async function getRecommendationsMovies(id_movie) {
+	try {
+		const response = await axiosInstance.get(
+			`/movie/${id_movie}/recommendations`,
+			{
+				params: {
+					language: 'es-MX'
+				}
+			}
+		)
+		return response.data.results
+	} catch (error) {
+		throw new Error('Error fetching movies: ' + error.message)
+	}
+}

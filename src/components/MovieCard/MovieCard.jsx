@@ -23,7 +23,6 @@ export default function MovieCard({ movie }) {
 					src={URL_IMG + poster_path}
 					alt={`${title} Poster`}
 					loading='lazy'
-					// style={{ viewTransitionName: `movie-${id}` }}
 				/>
 			</div>
 		</Link>

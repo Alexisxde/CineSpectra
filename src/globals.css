@@ -6,7 +6,7 @@
 
 body {
 	color: #fff;
-	background: linear-gradient(to bottom, #1a1a1a, #090909);
+	background-color: #1b1b1f;
 	font-family:
 		'Poppins',
 		system-ui,
@@ -20,7 +20,7 @@ body {
 		'Open Sans',
 		'Helvetica Neue',
 		sans-serif;
-	max-width: 1920px;
+	max-width: 1353px;
 	margin: 0 auto;
 }
 
