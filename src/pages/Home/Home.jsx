@@ -1,5 +1,6 @@
 import { getAllCategories, getAllMoviesCategories } from '@api/movies/api'
-import MovieCard from '@components/MovieCard/MovieCard'
+// import MovieCard from '@components/MovieCard/MovieCard'
+import Slider from '@components/Slider/Slider'
 import { useEffect, useRef, useState } from 'react'
 import './Home.css'
 
@@ -106,21 +107,17 @@ export default function Home() {
 
 	return (
 		<>
-			{categories?.map(({ id, name, movies }, index) => (
+			{categories?.map(({ id, name, movies }) => (
 				<section key={id} className='movies'>
-					<h2 className='movies__category'>{name}</h2>
+					<h2 className='movies__category'>
+						<a href={`/categories/${id}`}>{name}</a>
+					</h2>
 					<div className='animate-scroll-section movies__slider'>
 						{/* {!scrollPositions[index]?.isAtStart && (
 							<button onClick={() => scroll(index, 'left')}>&lt;</button>
 						)} */}
-						<div ref={el => (scrollRefs.current[index] = el)}>
-							{movies?.map(
-								movie =>
-									movie.poster_path && (
-										<MovieCard key={movie.id} movie={movie} />
-									)
-							)}
-						</div>
+						<Slider movies={movies} />
+
 						{/* {!scrollPositions[index]?.isAtEnd && (
 							<button onClick={() => scroll(index, 'right')}>&gt;</button>
 						)} */}

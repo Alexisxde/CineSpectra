@@ -1,11 +1,11 @@
-import { URL_IMG } from '@CONST/const'
+import { URL_IMG, URL_IMG_LOGOS } from '@CONST/const'
 import {
 	getImages,
 	getMovieTrailer,
 	getOneMovie,
 	getRecommendationsMovies
 } from '@api/movies/api'
-import MovieCard from '@components/MovieCard/MovieCard'
+import Slider from '@components/Slider/Slider'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './Movie.css'
@@ -54,7 +54,7 @@ export default function Movie() {
 			<div className='one-movie__logo'>
 				{logos[logos.length - 1] ? (
 					<img
-						src={URL_IMG + logos[logos.length - 1]?.file_path}
+						src={URL_IMG_LOGOS + logos[logos.length - 1]?.file_path}
 						alt={`${title} Logo`}
 						loading='lazy'
 						className='logo'
@@ -62,7 +62,7 @@ export default function Movie() {
 				) : (
 					<>
 						<img
-							src={URL_IMG + poster_path}
+							src={URL_IMG_LOGOS + poster_path}
 							alt={`${title} Poster`}
 							loading='lazy'
 							className='poster'
@@ -91,21 +91,13 @@ export default function Movie() {
 			{movie?.trailer && (
 				<div className='one-movie__trailer'>
 					<a
-						href={`https://www.youtube.com/embed/${movie.trailer.key}`}
+						href={`https://www.youtube.com/watch?v=${movie.trailer.key}`}
 						target='_blank'>
 						Ver Trailer
 					</a>
 				</div>
 			)}
-			<div className='recomendations'>
-				<h2>También podria gustarte</h2>
-				<div className='slider-movies'>
-					{recommendations?.map(
-						movie =>
-							movie.poster_path && <MovieCard key={movie.id} movie={movie} />
-					)}
-				</div>
-			</div>
+			<Slider movies={recommendations} title='También podria gustarte' />
 		</section>
 	)
 }

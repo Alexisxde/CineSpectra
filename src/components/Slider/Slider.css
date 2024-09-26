@@ -1,0 +1,24 @@
+.slider {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 32px 32px 32px;
+	gap: 16px;
+
+	> h2 {
+		text-align: center;
+	}
+
+	.slider-movies {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		overflow-x: auto;
+		overflow-y: hidden;
+		scroll-snap-type: x mandatory;
+		-webkit-overflow-scrolling: touch;
+
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+}

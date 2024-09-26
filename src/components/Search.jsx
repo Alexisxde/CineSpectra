@@ -29,7 +29,7 @@ export default function Search() {
 			<button
 				className='flex items-center justify-center px-2 py-1 md:hidden'
 				type='submit'>
-				<MagnifyingGlassIcon className='size-5' />
+				<MagnifyingGlassIcon className='size-4' />
 			</button>
 		</form>
 	)
