@@ -1,8 +1,4 @@
-import {
-	Bars3Icon,
-	MagnifyingGlassIcon,
-	XMarkIcon
-} from '@heroicons/react/16/solid'
+import { MagnifyingGlassIcon } from '@heroicons/react/16/solid'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Navegation.css'
@@ -24,29 +20,15 @@ export default function Navegation() {
 	return (
 		<>
 			<header className='navegation'>
-				<div>
-					<div className='navegation__logo'>
-						<a className='' href='/'>
-							CINESPECTRA
-						</a>
-					</div>
-					<nav className='navegation__links'>
-						<a href=''>Peliculas</a>
-						<a href=''>Series TV</a>
-						<a href=''>Novedades populares</a>
-						<a href=''>Mi lista</a>
-					</nav>
-					<button
-						onClick={() => setMenu(!menu)}
-						className='navegation__hamburguer'>
-						{menu ? (
-							<XMarkIcon className='icon' />
-						) : (
-							<Bars3Icon className='icon' />
-						)}
-					</button>
+				<div className='navegation__logo'>
+					<a className='' href='/'>
+						CINESPECTRA
+					</a>
 				</div>
-				<form className='navegation__search' onSubmit={submitHandler}>
+				<form
+					className='navegation__search'
+					autoComplete='off'
+					onSubmit={submitHandler}>
 					<MagnifyingGlassIcon className='icon' />
 					<input
 						type='text'
@@ -57,14 +39,6 @@ export default function Navegation() {
 						required
 					/>
 				</form>
-				{menu && (
-					<nav className='navegation__nav'>
-						<a href=''>Peliculas</a>
-						<a href=''>Series TV</a>
-						<a href=''>Novedades populares</a>
-						<a href=''>Mi lista</a>
-					</nav>
-				)}
 			</header>
 		</>
 	)

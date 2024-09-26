@@ -1,3 +1,4 @@
+import Navegation from '@components/Navegation/Navegation'
 import Categories from '@pages/Categories'
 import Home from '@pages/Home/Home'
 import Movie from '@pages/Movie/Movie'
@@ -8,6 +9,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 export default function App() {
 	return (
 		<Router>
+			<Navegation />
 			<main className='main'>
 				<Routes>
 					<Route path='/' element={<Home />} />
