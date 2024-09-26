@@ -9,6 +9,7 @@ export default function Home() {
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState(null)
 	const scrollRefs = useRef([])
+	// eslint-disable-next-line no-unused-vars
 	const [scrollPositions, setScrollPositions] = useState({})
 
 	useEffect(() => {
@@ -112,7 +113,7 @@ export default function Home() {
 					<h2 className='movies__category'>
 						<a href={`/categories/${id}`}>{name}</a>
 					</h2>
-					<div className='animate-scroll-section movies__slider'>
+					<div className='animate-scroll-section'>
 						{/* {!scrollPositions[index]?.isAtStart && (
 							<button onClick={() => scroll(index, 'left')}>&lt;</button>
 						)} */}

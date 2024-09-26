@@ -1,0 +1,7 @@
+.section-search {
+	margin-inline: 20px 8px 40px;
+	display: flex;
+	justify-content: center;
+	gap: 16px;
+	flex-wrap: wrap;
+}

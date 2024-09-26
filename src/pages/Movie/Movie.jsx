@@ -35,8 +35,14 @@ export default function Movie() {
 		getMovie()
 	}, [id])
 
-	if (loading) return
 	if (error) return <div>{error}</div>
+	if (loading) {
+		return (
+			<div className='animate-loader-container'>
+				<div className='animate-loader'></div>
+			</div>
+		)
+	}
 
 	const { backdrop_path, poster_path, title, overview, genres, release_date } =
 		movie.movie

@@ -2,6 +2,7 @@ import { getAllMoviesCategories } from '@api/movies/api'
 import MovieCard from '@components/MovieCard/MovieCard'
 import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import './Categories.css'
 
 export default function Categories() {
 	const { id } = useParams()
@@ -52,19 +53,19 @@ export default function Categories() {
 		setCurrentPage(prev => prev + 1)
 	}
 
+	if (error) return <div>{error}</div>
 	if (loading) {
 		return (
-			<div className='flex h-screen justify-center pb-7'>
+			<div className='animate-loader-container'>
 				<div className='animate-loader'></div>
 			</div>
 		)
 	}
-	if (error) return <div>{error}</div>
 	if (movies.length === 0) return <h1>No hay resultados</h1>
 
 	return (
 		<>
-			<section className='mx-2 mb-10 mt-5 flex flex-wrap justify-center gap-4'>
+			<section className='section-movies'>
 				{movies?.map(
 					movie =>
 						movie.poster_path && (
@@ -72,7 +73,7 @@ export default function Categories() {
 						)
 				)}
 			</section>
-			<div className='flex justify-center pb-7'>
+			<div className='loader-container'>
 				<div ref={pageEnd} className='animate-loader'></div>
 			</div>
 		</>

@@ -1,9 +1,9 @@
 import Navegation from '@components/Navegation/Navegation'
-import Categories from '@pages/Categories'
+import Categories from '@pages/Categories/Categories'
 import Home from '@pages/Home/Home'
 import Movie from '@pages/Movie/Movie'
-import NotFound from '@pages/NotFound'
-import Search from '@pages/Search'
+import NotFound from '@pages/NotFound/NotFound'
+import Search from '@pages/Search/Search'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
 export default function App() {

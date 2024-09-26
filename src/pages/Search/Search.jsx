@@ -2,6 +2,7 @@ import { searchMovies } from '@api/movies/api'
 import MovieCard from '@components/MovieCard/MovieCard'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import './Search.css'
 
 export default function Search() {
 	const { keyword } = useParams()
@@ -23,26 +24,24 @@ export default function Search() {
 		getSearchMovies()
 	}, [keyword])
 
+	if (error) return <div>{error}</div>
 	if (loading) {
 		return (
-			<div className='flex h-screen items-center justify-center'>
+			<div className='animate-loader-container'>
 				<div className='animate-loader'></div>
 			</div>
 		)
 	}
-	if (error) return <div>{error}</div>
 
 	return (
-		<>
-			<section className='animate-content mx-2 mb-10 mt-5 flex flex-wrap justify-center gap-4'>
-				{search.length === 0 && <h4>No se encontraron resultados</h4>}
-				{search?.map(
-					movie =>
-						movie.poster_path && (
-							<MovieCard key={movie.id} movie={movie} className='animate-img' />
-						)
-				)}
-			</section>
-		</>
+		<section className='animate-content section-search'>
+			{search.length === 0 && <h1>No se encontraron resultados</h1>}
+			{search?.map(
+				movie =>
+					movie.poster_path && (
+						<MovieCard key={movie.id} movie={movie} className='animate-img' />
+					)
+			)}
+		</section>
 	)
 }
